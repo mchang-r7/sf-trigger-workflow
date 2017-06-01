@@ -44,7 +44,7 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Used to validate expected behavior in Apex, especially for key assumptions made by the trigger workflow framework</description>
-    <enableActivities>false</enableActivities>
+    <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -69,6 +69,34 @@
         <externalId>false</externalId>
         <inlineHelpText>The number of discrete DML operations that have been performed on this record, including the very first insert operation</inlineHelpText>
         <label>Num DML Operations</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberOfProcessTouches__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>The number of discrete updates performed by Process Builder processes on this record, including the very first insert operation. This counter is managed by a process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of discrete updates performed by Process Builder processes on this record</inlineHelpText>
+        <label>Num Process Touches</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberOfSecondaryProcessTouches__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>The number of discrete updates performed by Process Builder processes on this record, including the very first insert operation. This counter is managed by a process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of discrete updates performed by Process Builder processes on this record</inlineHelpText>
+        <label>Num Secondary Process Touches</label>
         <precision>18</precision>
         <required>true</required>
         <scale>0</scale>

@@ -2,7 +2,9 @@ global with sharing class ApexTruthTrackDmlWorkflow
         extends AbstractSobjectWorkflow {
 
     global override void executeAfter() {
-        /* do nothing */
+        for (ApexTruth__c eachRecord : (List<ApexTruth__c>)this.records) {
+            insert new Task(WhatId = eachRecord.Id, Subject = 'Track DML');
+        }
     }
 
     global override void executeBefore() {

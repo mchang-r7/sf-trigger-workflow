@@ -26,6 +26,16 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>ApexTruthTrackProcess-1</members>
+        <members>ApexTruthTrackSecondaryProcess-1</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>ApexTruthTrackProcess</members>
+        <members>ApexTruthTrackSecondaryProcess</members>
+        <name>FlowDefinition</name>
+    </types>
+    <types>
         <members>ApexTruth__c-Apex Truth Layout</members>
         <members>TriggerWorkflow__mdt-Trigger Workflow Layout</members>
         <name>Layout</name>

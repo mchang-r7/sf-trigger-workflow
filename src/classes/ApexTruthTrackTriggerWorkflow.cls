@@ -2,7 +2,9 @@ global with sharing class ApexTruthTrackTriggerWorkflow
         extends AbstractSobjectWorkflow {
 
     global override void executeAfter() {
-        /* do nothing */
+        for (ApexTruth__c eachRecord : (List<ApexTruth__c>)this.records) {
+            insert new Task(WhatId = eachRecord.Id, Subject = 'Track Trigger');
+        }
     }
 
     global override void executeBefore() {

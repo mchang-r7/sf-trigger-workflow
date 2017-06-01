@@ -35,7 +35,20 @@ private class ApexTruthTrackTriggerWorkflowTest {
         System.assertEquals(1, truth.NumberOfWorkflowTouches__c,
                 ApexTruth__c.fields.NumberOfWorkflowTouches__c.getDescribe().getLabel());
 
-        System.assertEquals(2, truth.NumberOfTriggerTouches__c,
+        // Fourteen touches!? Here's the breakdown.
+        // 
+        // 1.  before insert
+        // 2.  before update, caused by workflow field update
+        // 3.  before update, caused by ApexTruthTrackProcess
+        // 4.  before update, caused by ApexTruthTrackSecondaryProcess
+        //
+        // Touches 5-14 are basically the third and fourth touch repeated
+        // five times, caused by process recursion. As Salesforce says,
+        // "If you select yes [to recursion], this process can [re-evaluate]
+        // the same record up to five times in a single transaction.
+        // It might reevaluate the record because a process, workflow rule,
+        // or flow updated the record in the same transaction."
+        System.assertEquals(14, truth.NumberOfTriggerTouches__c,
                 ApexTruth__c.fields.NumberOfTriggerTouches__c.getDescribe().getLabel());
     }
 }
